@@ -17,3 +17,7 @@ li {
   font-weight: 400;
   color: var(--text);
 }
+
+body {
+  background-color: var(--maincream);
+}
