@@ -1,0 +1,11 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    --aubergine: #4c2538;
+    --maincream: #F5F0E1;
+    --babyblue: #6ca6ed;
+    --orangesun: #fd5200;
+    --tekst: #000000;
+}
