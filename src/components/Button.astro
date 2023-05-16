@@ -1,0 +1,30 @@
+---
+const {classname, action,link} = Astro.props;
+
+---
+
+<a class={classname+ " button_main"} href={link}>{action}</a>
+
+
+<style>
+
+.button_main{
+    background-color:var(--aubergine);
+    color: var(--maincream);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px 15px;
+    text-decoration: none;
+}
+
+.button_main:hover{
+    background-color:var(--babyblue);
+}
+.button_lille{
+    padding: 10px 20px;
+}
+
+.button_stor{
+    padding: 9px 22px;
+}
+
+</style>
