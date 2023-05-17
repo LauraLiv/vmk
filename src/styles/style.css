@@ -10,6 +10,15 @@
   --text: #000000;
 }
 
+h1 {
+  font-family: "parry", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 30px;
+  text-align: center;
+  margin: 15px 0px 30px;
+}
+
 a,
 p,
 li {
@@ -20,4 +29,10 @@ li {
 
 body {
   background-color: var(--maincream);
+}
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 50px;
+  }
 }

@@ -1,0 +1,81 @@
+---
+import Button from "../components/Button.astro";
+const {cardImage} = Astro.props;
+---
+
+<div class="card">
+    <div class="card_img">
+    </div>
+    <div class="card_content">
+        <div class="title_date_wrapper">
+            <div class="title">
+                <p>Børne bio</p>
+                </div>
+            <div class="date">
+                   <p>02.05.23</p>
+                </div>
+        </div>
+        <div class="description">
+            <p>
+                Kom og se Alfons aaberg på den store skærm....
+            </p>
+        </div>
+        <div class="card_button">
+            <Button classname="button_small" action="Læs mere" link="#" />
+        </div>
+    </div>
+</div>
+
+<style>
+
+.card {
+    background-color: white;
+    width: 280px;
+    height: 355px;
+    border-radius: 20px;
+    margin: 20px 0px;
+}
+
+.card_img {
+    height: 202px;
+    border-radius: 20px 20px 0px 0px;
+    background-image: url("img/bornebio.webp");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+}
+
+.card_content {
+    padding: 15px;
+}
+
+.title_date_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title_date_wrapper p {
+    font-weight: bold;
+}
+
+.description p {
+    padding: 15px 0px;
+    font-weight: 300;
+}
+
+.card_button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (min-width: 600px) {
+.card {
+    width: 300px;
+    height: 375px;
+}
+
+.card_img {
+    height: 222px;
+}
+
+</style>

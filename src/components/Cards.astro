@@ -1,0 +1,23 @@
+---
+import Card from "../components/Card.astro";
+---
+
+<div class="cards_container">
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+</div>
+
+<style>
+.cards_container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-inline: auto;
+    justify-content: space-between;
+}
+
+</style>
