@@ -19,12 +19,28 @@ const {classname, action,link} = Astro.props;
 .button_main:hover{
     background-color:var(--babyblue);
 }
+
+.button_orange:hover{
+    background-color:var(--orangesun);
+}
 .button_small{
     padding: 10px 20px;
 }
 
 .button_big{
-    padding: 9px 22px;
+    padding: 11px 22px;
+}
+
+@media (min-width: 600px) {
+.button_small{
+    padding: 11px 22px;
+}
+
+.button_big{
+    padding: 15px 30px;
+}
+    
+
 }
 
 </style>
