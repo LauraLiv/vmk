@@ -1,0 +1,26 @@
+---
+import Textcontainer from "../components/Textcontainer.astro";
+import MainLayout from "../layout/main-layout.astro";
+---
+
+<MainLayout>
+<h1>Bliv frivillig</h1>
+<div class="frivillig_container">
+    <img src="img/frivillig.svg" alt="frivillig billede">
+	<Textcontainer>
+        <p>Bidrag til lokalsamfundet som frivillig hos os. Uanset din interesse og erfaring, har vi brug for dig! Vi tilbyder fleksible arbejdstider og dejlige kollegaer. Kom og vær en del af vores dedikerede team. </p>
+    </Textcontainer>
+    <p>Forms</p>
+</div>
+</MainLayout>
+
+<style>
+
+@media (min-width:600px){
+.frivillig_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+}
+
+</style>
