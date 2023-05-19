@@ -6,21 +6,54 @@ import MainLayout from "../layout/main-layout.astro";
 <MainLayout>
 <h1>Bliv frivillig</h1>
 <div class="frivillig_container">
-    <img src="img/frivillig.svg" alt="frivillig billede">
-	<Textcontainer>
-        <p>Bidrag til lokalsamfundet som frivillig hos os. Uanset din interesse og erfaring, har vi brug for dig! Vi tilbyder fleksible arbejdstider og dejlige kollegaer. Kom og vær en del af vores dedikerede team. </p>
-    </Textcontainer>
-    <p>Forms</p>
+    <div class="text-container">
+        <Textcontainer>
+            <p>Bidrag til lokalsamfundet som frivillig hos os. Uanset din interesse og erfaring, har vi brug for dig! Vi tilbyder fleksible arbejdstider og dejlige kollegaer. Kom og vær en del af vores dedikerede team. </p>
+        </Textcontainer>
+    </div>
+    	
+    <div class="image-container">
+        <img src="img/frivillig.svg" alt="frivillig billede">
+    </div>
+    <div class="form-container">
+        <p>Forms</p>
+     </div>
+        
+        
 </div>
 </MainLayout>
 
 <style>
 
-@media (min-width:600px){
+
+.text-container{
+    grid-area: text1;
+}
+.image-container{
+    grid-area: image1;
+}
+.form-container{
+    grid-area: form;
+}
+
 .frivillig_container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+        "image1"
+        "text1"
+        "form";
+}
+
+@media (min-width:600px){
+.frivillig_container{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "text1 text1"
+        "image1 form";
 }
 }
+
+
+
 
 </style>
