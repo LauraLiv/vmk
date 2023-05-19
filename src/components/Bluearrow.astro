@@ -6,5 +6,15 @@
 <img class="blue_arrow" src="img/blue_arrow.svg" alt="blue arrow">
 
 <script>
+
+    const button = document.querySelector(".blue_arrow");
     
-</script>
+    button.addEventListener("click",scrollToTop);
+    
+    
+    function scrollToTop() {
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+
+    }
+    </script>
