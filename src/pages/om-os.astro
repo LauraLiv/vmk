@@ -27,21 +27,32 @@ import MainLayout from "../layout/main-layout.astro";
 <style>
     .content-section{
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: 1fr;
         column-gap: 40px;
+        row-gap: 40px;
+       
+        
+        
+    }
+    .first-image-container,.second-image-container{
+        max-width: 600px;
+        margin-inline: auto;
+    }
+
+    
+
+    @media only screen and (min-width: 1000px) {
+        .content-section{
+        grid-template-columns: 1fr 1fr;
+        max-width: none;
+        
         
 
-        
     }
 
 
-
-
-
-    img{
-        max-width: 100%;
-        max-height:100%;
-    }
+}
+  
 
 
 </style>
