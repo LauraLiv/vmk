@@ -1,13 +1,24 @@
 ---
+import Burger from "../components/Burger.astro";
+
 ---
 
 <div class="header-container">
-    <div></div>
+    <div class="filler"></div>
     <div><img class="logo" src="img/vmk.webp" alt="vmk"></div>
-    <div></div>
+    <div>
+        <Burger />
+    </div>
 </div>
 
 <style>
+
+    .filler{
+        width: 100px;
+        color: transparent;
+        background-color: transparent;
+        display: block;
+    }
     .header-container{
         display: flex;
         justify-content: space-between;
