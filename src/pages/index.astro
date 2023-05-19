@@ -1,40 +1,36 @@
 ---
-
-import Textcontainer from "../components/Textcontainer.astro"; 
+import Textcontainer from "../components/Textcontainer.astro";
 import MainLayout from "../layout/main-layout.astro";
-import Cards from "../components/Cards.astro"; 
+import Cards from "../components/Cards.astro";
+import Footer from "../components/Footer.astro";
 import Button from "../components/Button.astro";
-
+import Burger from "../components/Burger.astro";
 ---
 
-
 <MainLayout title="Forside">
-	<h1>Verdens Mindste Kulturhus</h1>
-	<Textcontainer>
-		<p>Vi er et småt, men levende kulturhus, der er passioneret omkring at skabe et rum, hvor forskellige former for kunstnerisk udtryk kan blomstre. Vores mål er at være et fristed for både etablerede og upcoming kunstnere samt et kreativt samlingspunkt for alle, der elsker kunst og kultur.</p>
-	</Textcontainer>
-	<p>Kommende begivenheder...</p>
-	<Cards />
-	<p>Om os</p>
-	<div class="om_os_container">
-		<div class="img_section">
-	<img src="img/om_os.webp" alt="billede af VMK kulurhus">
-	</div>
-	<div class="text_section">
-	<p>På Mimersgade overfor nr 64, ligger en ombygget skibscontainer beklædt med træ og malet blåt. Omkring er et område med græs, blomsterkasser, bænke og borde. Inspireret af filmen Bagdad Café, tog Ane, Julie og Nadja (som i dag frivilligt drifter og kuraterer huset) i foråret 2022 en beslutning om at omdanne det til et kulturhus - Verdens Mindste Kulturhus. </p>
-	<Button classname="button_big" action="Læs mere" link="/om-os"/>
-	</div>
-</div>
+  <h1>Verdens Mindste Kulturhus</h1>
+  <Textcontainer>
+    <p>Vi er et småt, men levende kulturhus, der er passioneret omkring at skabe et rum, hvor forskellige former for kunstnerisk udtryk kan blomstre. Vores mål er at være et fristed for både etablerede og upcoming kunstnere samt et kreativt samlingspunkt for alle, der elsker kunst og kultur.</p>
+  </Textcontainer>
+  <p>Kommende begivenheder...</p>
+  <Cards />
+  <p>Om os</p>
+  <div class="om_os_container">
+    <div class="img_section">
+      <img src="img/om_os.webp" alt="billede af VMK kulurhus" />
+    </div>
+    <div class="text_section">
+      <p>På Mimersgade overfor nr 64, ligger en ombygget skibscontainer beklædt med træ og malet blåt. Omkring er et område med græs, blomsterkasser, bænke og borde. Inspireret af filmen Bagdad Café, tog Ane, Julie og Nadja (som i dag frivilligt drifter og kuraterer huset) i foråret 2022 en beslutning om at omdanne det til et kulturhus - Verdens Mindste Kulturhus.</p>
+      <Button classname="button_big" action="Læs mere" link="/om-os" />
+    </div>
+  </div>
 </MainLayout>
 
 <style>
-
-@media (min-width:600px){
-.om_os_container {
-display: flex;
-flex-wrap: nowrap;
-}
-}
-
+  @media (min-width: 600px) {
+    .om_os_container {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
 </style>
-
