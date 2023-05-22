@@ -1,0 +1,50 @@
+---
+import MainLayout from "../layout/main-layout.astro";
+import Button from "../components/Button.astro";
+import Bluearrow from "../components/Bluearrow.astro";
+---
+
+<MainLayout>
+    <h1>Børne bio</h1>
+    <div class="section_container">
+    <div class="image_container"><img src="img/bornebio.webp" alt="bornebio"></div>
+    <div class="text_container"><p class="first_text">Kom og se Alfons Aaberg og alle dine andre venner fra fjernsyn. Der er stadig billetter, hvis I vil skyde weekenden i gang med Børnebio og voksenbar. </p>
+    <p> <span> Dato:</span> 02.05.23 </p>
+    <p> <span> Tid:</span> 16.00-17:30</p>
+    <p> <span> Pris:</span> 35kr </p>
+   <div class="button"><Button classname="button_big" action="Køb her" link="#"/></div> 
+    </div>
+</div>
+    <Bluearrow></Bluearrow>
+    </MainLayout> 
+
+    <style>
+.section_container {
+display: grid;
+grid-template-columns: 1fr;
+column-gap: 40px;
+row-gap: 40px;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+span {
+    font-weight: bold;
+}
+
+.first_text{
+    padding-bottom: 20px;
+}
+
+@media (min-width:600px) {
+    .section_container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+}
+}
+
+    </style>
