@@ -1,20 +1,201 @@
 ---
 import Card from "../components/Card.astro";
----
+const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: api,
+  },
+};
 
-<div class="cards_container">
-    <Card />
-    <Card />
-    <Card />
-</div>
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data[0]);
 
-<style>
-.cards_container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1000px;
-    margin-inline: auto;
-    justify-content: space-between;
+function getFirstLetters(sentence) {
+  return sentence.substring(0, 50);
 }
 
+---
+
+<!-- <div class="cards_container">
+    <Card />
+    <Card />
+    <Card />
+</div> -->
+
+<div class="headline-container">
+    
+  </div>
+<div class="wrapper">
+    <!-- <img id="left" class="arrow left" src="img/arrowleft.svg" alt=""> -->
+    <div class="carousel">
+         {
+            data.map((event) => {
+                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} /> 
+            })
+        } 
+
+
+       
+       
+       
+        <Card headline={data[0].headline} eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner ..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+
+
+
+
+
+        
+       
+    </div>
+    <!-- <img  class="arrow right" src="img/arrowright.svg" alt=""> -->
+</div>
+
+
+<style>
+
+
+.wrapper{
+    max-width: 960px;
+    position: relative;
+    margin-inline: auto;
+}
+
+.wrapper .carousel{
+    overflow: hidden;
+     white-space: nowrap; 
+    scroll-behavior: smooth;
+}
+
+.carousel.dragging{
+    scroll-behavior: auto;
+}
+
+.button-container{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.square{
+     display: inline-block; 
+    width: 350px;
+    height: 350px;
+    margin-inline: 4px;
+    padding: 0;
+}
+
+.blue{
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green
+}
+
+.orange{
+    background-color: orange;
+}
+.grey{
+    background-color: grey;
+}
+
+
+
 </style>
+<script>
+    const carousel = document.querySelector(".carousel");
+    const arrowicons = document.querySelectorAll(".arrow");
+    const firstSquare = carousel.querySelectorAll(".square")[0];
+
+    let isDragStart = false, isDraggin = false, prevPageX, prevScrollLeft, postitionDiff;
+    let firstSquareWith = firstSquare.clientWidth +20;
+
+    arrowicons.forEach(icon => {
+        icon.addEventListener("click", () => {
+            
+            carousel.scrollLeft += icon.id == "left" ? -firstSquareWith : firstSquareWith;
+        })
+    })
+
+    const autoSlide = () => {
+        if (carousel.scrollLeft == (carousel.scrollWidth - carousel.clientWidth )) return;
+
+        postitionDiff = Math.abs(postitionDiff);
+        //let firstSquareWith = firstSquare.clientWidth +4;
+        let valDifference = firstSquareWith - postitionDiff
+
+        if(carousel.scrollLeft > prevScrollLeft){
+            return carousel.scrollLeft += postitionDiff > firstSquareWith / 3 ? valDifference : -postitionDiff;
+        }else{
+            return carousel.scrollLeft -= postitionDiff > firstSquareWith / 3 ? valDifference : -postitionDiff;
+        }
+        
+    }
+
+    const dragStart = (e) =>{
+        isDragStart = true;
+        prevPageX = e.pageX || e.touches[0].pageX;
+        prevScrollLeft = carousel.scrollLeft;
+    }
+    
+    const dragging = (e) => {
+        if(!isDragStart) return;
+        e.preventDefault();
+        // carousel.scrollLeft = e.pageX;
+        isDraggin = true;
+
+        postitionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+        carousel.scrollLeft = prevScrollLeft - postitionDiff;
+
+        carousel.classList.add("dragging");
+        
+    }
+
+    const dragStop = () => {
+         isDragStart = false;
+         carousel.classList.remove("dragging");
+         if(!isDraggin) return;
+         isDraggin = false;
+         autoSlide();
+
+    }
+
+
+    carousel.addEventListener("mousedown", dragStart);
+    carousel.addEventListener("touchstart", dragStart);
+
+
+    carousel.addEventListener("mousemove", dragging);
+    carousel.addEventListener("touchmove", dragging);
+
+
+    carousel.addEventListener("mouseup", dragStop);
+    carousel.addEventListener("mouseleave", dragStop);
+    carousel.addEventListener("touchend", dragStop);
+
+
+    const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: api,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data);
+    
+   
+
+</script>
