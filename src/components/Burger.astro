@@ -62,7 +62,7 @@
     border-radius: 2px;
     cursor: pointer;
     float: right;
-    z-index: 4;
+    z-index: 5;
   }
   .burger::after,
   .burger::before {
@@ -102,14 +102,19 @@
     border-bottom-right-radius: 40%;
     margin-right: -20px;
     overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    z-index: 4;
   }
 </style>
 
 <script>
+  const burgerback = document.querySelector(".burgerBack");
+  const burgerContainer = document.querySelector(".burgerContainer");
   const burger = document.querySelector(".burger");
   const menu = document.querySelector("nav");
 
-  burger.addEventListener("click", function () {
+  burgerback.addEventListener("click", function () {
     burger.classList.toggle("active");
     menu.classList.toggle("hide");
   });
