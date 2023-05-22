@@ -1,23 +1,23 @@
 ---
 import Button from "../components/Button.astro";
-const {cardImage, className} = Astro.props;
+const {headline, eventDate, content, cardImage, className} = Astro.props;
 ---
 
 <div class="card square">
-    <div class="card_img">
+    <div class="card_img" style=`background-image: url('img/${cardImage}');`>
     </div>
     <div class="card_content">
         <div class="title_date_wrapper">
             <div class="title">
-                <p>Børne bio</p>
+                <p>{headline}</p>
                 </div>
             <div class="date">
-                   <p>02.05.23</p>
+                   <p>{eventDate}</p>
                 </div>
         </div>
         <div class="description">
             <p>
-                Kom og se Alfons aaberg på den store skærm....
+                {content}
             </p>
         </div>
         <div class="card_button">
@@ -38,10 +38,11 @@ const {cardImage, className} = Astro.props;
 
 }
 
+
 .card_img {
     height: 202px;
     border-radius: 20px 20px 0px 0px;
-    background-image: url("img/bornebio.webp");
+    
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
@@ -70,14 +71,17 @@ const {cardImage, className} = Astro.props;
     justify-content: flex-end;
 }
 
+.description p{
+    white-space: normal;
+}
 @media (min-width: 600px) {
 .card {
     width: 300px;
-    height: 375px;
+    height: 400px;
 }
 
 .card_img {
     height: 222px;
 }
-
+}
 </style>

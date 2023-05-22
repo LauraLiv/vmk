@@ -1,5 +1,21 @@
 ---
 import Card from "../components/Card.astro";
+const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: api,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data[0]);
+
+function getFirstLetters(sentence) {
+  return sentence.substring(0, 50);
+}
+
 ---
 
 <!-- <div class="cards_container">
@@ -14,12 +30,27 @@ import Card from "../components/Card.astro";
 <div class="wrapper">
     <!-- <img id="left" class="arrow left" src="img/arrowleft.svg" alt=""> -->
     <div class="carousel">
+         {
+            data.map((event) => {
+                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} /> 
+            })
+        } 
+
+
        
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
-        <Card/>
+       
+       
+        <Card headline={data[0].headline} eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner ..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+        <Card headline="Bio aften" eventDate="22.04.22" content="kom og ser alfons på nye eventyr med alle sine venner..."/>
+
+
+
+
+
+        
        
     </div>
     <!-- <img  class="arrow right" src="img/arrowright.svg" alt=""> -->
@@ -87,7 +118,7 @@ import Card from "../components/Card.astro";
     const firstSquare = carousel.querySelectorAll(".square")[0];
 
     let isDragStart = false, isDraggin = false, prevPageX, prevScrollLeft, postitionDiff;
-    let firstSquareWith = firstSquare.clientWidth +8;
+    let firstSquareWith = firstSquare.clientWidth +20;
 
     arrowicons.forEach(icon => {
         icon.addEventListener("click", () => {
@@ -152,7 +183,19 @@ import Card from "../components/Card.astro";
     carousel.addEventListener("mouseleave", dragStop);
     carousel.addEventListener("touchend", dragStop);
 
-   
+
+    const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: api,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data);
+    
    
 
 </script>
