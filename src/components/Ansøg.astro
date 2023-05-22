@@ -4,18 +4,17 @@ import Button from "../components/Button.astro";
 
 <h1>Ansøg</h1>
 
-<form name="ansøg form">
+<form name="ansøg form" netlify>
 
-    <div class="tag"></div>
 
   <label for="fuldnavn"></label>
-  <input placeholder="Navn" id="fuldnavn" type="text" name="navn" />
+  <input placeholder="Navn" id="fuldnavn" type="text" name="navn" required />
 
   <label for="email"></label>
-  <input placeholder="E-Mail" type="email" name="mail" id="email" />
+  <input placeholder="E-Mail" type="email" name="mail" id="email" required />
 
   <label for="beskrivelse"></label>
-  <textarea  name="description" id="beskrivelse" cols="80" rows="10" placeholder="Beskrivelse"></textarea>
+  <textarea  name="description" id="beskrivelse" cols="80" rows="10" placeholder="Beskrivelse" required></textarea>
 
 
 <input class="submitknap" type="submit" value="Indsend">
