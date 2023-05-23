@@ -35,86 +35,12 @@ function getFirstLetters(sentence) {
                 return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} /> 
             })
         } 
-
-
-       
-
-
-        
-       
+ 
     </div>
      <img  class="arrow right" src="img/black_arrow_right.svg" alt="">
 </div>
 
 
-<style>
-
-.arrow{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-}
-.right{
-    right: -40px;
-}
-.left{
-    left: -40px;
-}
-
-.wrapper{
-    max-width: 960px;
-    position: relative;
-    margin-inline: auto;
-}
-
-.wrapper .carousel{
-    overflow: hidden;
-     white-space: nowrap; 
-    scroll-behavior: smooth;
-}
-
-.carousel.dragging{
-    scroll-behavior: auto;
-}
-
-.button-container{
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.square{
-     display: inline-block; 
-    width: 350px;
-    height: 350px;
-    margin-inline: 4px;
-    padding: 0;
-}
-
-.blue{
-    background-color: blue;
-}
-.red{
-    background-color: red;
-}
-.yellow{
-    background-color: yellow;
-}
-.green{
-    background-color: green
-}
-
-.orange{
-    background-color: orange;
-}
-.grey{
-    background-color: grey;
-}
-
-
-
-</style>
 <script>
     const carousel = document.querySelector(".carousel");
     const arrowicons = document.querySelectorAll(".arrow");
@@ -187,18 +113,73 @@ function getFirstLetters(sentence) {
     carousel.addEventListener("touchend", dragStop);
 
 
-    const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
-const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
-const options = {
-  method: "GET",
-  headers: {
-    apikey: api,
-  },
-};
-
-const data = await fetch(url, options).then((res) => res.json());
-console.log(data);
-    
    
-
 </script>
+
+
+<style>
+
+    .arrow{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+    }
+    .right{
+        right: -40px;
+    }
+    .left{
+        left: -40px;
+    }
+    
+    .wrapper{
+        max-width: 960px;
+        position: relative;
+        margin-inline: auto;
+    }
+    
+    .wrapper .carousel{
+        overflow: hidden;
+         white-space: nowrap; 
+        scroll-behavior: smooth;
+    }
+    
+    .carousel.dragging{
+        scroll-behavior: auto;
+    }
+    
+    .button-container{
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .square{
+         display: inline-block; 
+        width: 350px;
+        height: 350px;
+        margin-inline: 4px;
+        padding: 0;
+    }
+    
+    .blue{
+        background-color: blue;
+    }
+    .red{
+        background-color: red;
+    }
+    .yellow{
+        background-color: yellow;
+    }
+    .green{
+        background-color: green
+    }
+    
+    .orange{
+        background-color: orange;
+    }
+    .grey{
+        background-color: grey;
+    }
+    
+    </style>
