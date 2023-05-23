@@ -28,7 +28,7 @@ function getFirstLetters(sentence) {
     
   </div>
 <div class="wrapper">
-    <!-- <img id="left" class="arrow left" src="img/arrowleft.svg" alt=""> -->
+     <img id="left" class="arrow left" src="img/black_arrow_left.svg" alt=""> 
     <div class="carousel">
          {
             data.map((event) => {
@@ -43,12 +43,25 @@ function getFirstLetters(sentence) {
         
        
     </div>
-    <!-- <img  class="arrow right" src="img/arrowright.svg" alt=""> -->
+     <img  class="arrow right" src="img/black_arrow_right.svg" alt="">
 </div>
 
 
 <style>
 
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+}
+.right{
+    right: -40px;
+}
+.left{
+    left: -40px;
+}
 
 .wrapper{
     max-width: 960px;
