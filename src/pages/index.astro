@@ -47,12 +47,11 @@ import Bluearrow from "../components/Bluearrow.astro";
 
   .image-container{
       position: relative;
-      height: 100%;
+      height: 665px;      
+      }
+  .image-index {
+    position: absolute;
   }
-.image-index {
-  position: absolute;
-  display: flex;
-}
 
 .description{
     display: none;
@@ -105,23 +104,24 @@ padding-top: 10px;
 
 
   @media (min-width: 600px) {
-    .image_index{
-    width: 70%;  
-    top: 20px;
-    left: 30px
-    }
+      .image_index{
+          width: 70%;
+        top: 230px;
+        left: 180px;
+        position: absolute;
+      }
 
     .maincream_index_text{
       display: none;    
     }
 
     .aubergine_index_text{
-      display: flex;
+      display: block;
       position: absolute;
       width: 300px;
       top: 10px;
-      left: 30px;
-    }
+      left: 15px;    
+      }
 
     .title {
       font-size: 35px;
@@ -134,25 +134,32 @@ padding-top: 10px;
   }
 
 
-@media (min-width: 1000px) {
+@media (min-width: 900px) {
      .image_index{
-        width: 80%;    
+       width: 65%;
+        top: 200px;
+        left: 300px;
       }
+
   span{
     font-family: "parry", sans-serif;
     font-weight: 800;
     font-style: italic;
-    font-size: 40px;
+    font-size: 37px;
   }
   .description{
-    display:flex;
+    display:block;
     position: absolute;
-    flex-direction: column;
     text-align: center;
     top: 100px;
-left: 350px;
+    left: 400px;
   }
 
+     .aubergine_index_text{
+      width: 350px;
+      top: 10px;
+      left: 30px;    
+      }
 }
 
 
