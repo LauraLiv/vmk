@@ -4,5 +4,42 @@ import MainLayout from "../layout/main-layout.astro";
 ---
 
 <MainLayout>
-  <Ansog />
+  <h1>Ansøg huset</h1>
+  <div class="ansog_container">
+    <div class="text_section">
+      <p class="text"> Ønsker du at afholde et arrangement i skibscontaineren så udfyld skemaet nedenunder og kom i kontakt med os! 
+      <br>
+      <br>
+      Ønsker du at holde et event er lejen gratis, hvis du vil afholde et privat arrangement vil prisen være:
+
+
+      <br>
+      <br> <span class="price"> Priser: </span>
+      <br> <span>Halv dag: </span> 200 kr
+      <br> <span> Hel dag: </span> 350 kr
+    </p>
+        </div>
+
+
+    <div class="forms_section">
+      <Ansog />
+    </div>
+  </div>
 </MainLayout>
+
+<style>
+  .price{
+    font-size: 20px;
+    font-weight: bolder;
+
+  }
+  span {
+    font-weight: bold;
+}
+@media (min-width:600px){
+  .ansog_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+</style>
