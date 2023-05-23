@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layout/main-layout.astro";
+
+const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: api,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data[0]);
+
+function getFirstLetters(sentence) {
+  return sentence.substring(0, 50);
+}
+---
+
+<MainLayout>
+
+    <div class="eventContainer">
+        
+    </div>
+    
+</MainLayout>
