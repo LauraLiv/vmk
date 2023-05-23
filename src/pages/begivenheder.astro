@@ -1,0 +1,108 @@
+---
+ var currentDate = new Date();
+  var month = currentDate.getMonth() + 1; // Adding 1 since getMonth() returns zero-based index
+  var year = currentDate.getFullYear();
+  console.log("Current month and year: " + month + "/" + year);
+
+
+    function getDaysInMonth(month, year) {
+  // Create a new date object for the given month and year
+  const date = new Date(year, month - 1, 1);
+
+  // Get the next month's first day
+  const nextMonth = new Date(year, month, 1);
+
+  // Subtract 1 day from the next month's first day
+  const lastDayOfMonth = new Date(nextMonth.getTime() - 1);
+
+  // Extract the day from the last day of the given month
+  const daysInMonth = lastDayOfMonth.getDate();
+
+  return daysInMonth;
+}
+
+
+const daysInMonth = getDaysInMonth(month, year);
+console.log(daysInMonth);
+
+
+import MainLayout from "../layout/main-layout.astro";
+import Card from "../components/Card.astro";
+
+const url = `https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?select=*&&date=gt.${year}-${month}-01&date=lt.${year}-${month}-${daysInMonth}`;
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+const options = {
+  method: "GET",
+  headers: {
+    apikey: api,
+  },
+};
+
+const data = await fetch(url, options).then((res) => res.json());
+console.log(data[0]);
+
+function getFirstLetters(sentence) {
+  return sentence.substring(0, 50);
+}
+---
+
+<MainLayout>
+    <div class="headlineContainer">
+        <h1>Begivenheder</h1>
+    </div>
+
+    <div class="eventContainer">
+
+        {
+            data.map((event) => {
+                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} /> 
+            })
+        } 
+
+
+    </div>
+    
+</MainLayout>
+
+<style>
+    .eventContainer{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+</style>
+
+<script>
+
+
+  var currentDate = new Date();
+  var month = currentDate.getMonth() + 1; // Adding 1 since getMonth() returns zero-based index
+  var year = currentDate.getFullYear();
+  console.log("Current month and year: " + month + "/" + year);
+
+
+    function getDaysInMonth(month, year) {
+  // Create a new date object for the given month and year
+  const date = new Date(year, month - 1, 1);
+
+  // Get the next month's first day
+  const nextMonth = new Date(year, month, 1);
+
+  // Subtract 1 day from the next month's first day
+  const lastDayOfMonth = new Date(nextMonth.getTime() - 1);
+
+  // Extract the day from the last day of the given month
+  const daysInMonth = lastDayOfMonth.getDate();
+
+  return daysInMonth;
+}
+
+
+const daysInMonth = getDaysInMonth(month, year);
+console.log( daysInMonth);
+
+
+</script>
+
+
