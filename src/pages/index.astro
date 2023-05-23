@@ -8,19 +8,20 @@ import Bluearrow from "../components/Bluearrow.astro";
 
 <MainLayout title="Forside">
   <div class="image-container">
-    <img src="img/index_billede.webp" alt="forside billede">
-    <img src="img/vmk_forside_logo_mobil.svg" alt="vmk forside logo mobil">
+    <p class="description"> <span>Fællesskab, Kultur og Events</span> 
+      <br>Mimersgade 23, nørrebro, 2450 københavn
+    </p>
+     <img class="image_index" src="img/index_billede.webp" alt="forside billede">
+    <img class="maincream_index_text" src="img/vmk_forside_logo_mobil.svg" alt="vmk forside logo mobil">
+    <img class="aubergine_index_text" src="img/vmk_forside_logo.svg" alt="vmk forside logo">
   </div>
 
-  <div class="aubergine_arrow">
-    <img src="img/aubergine_arrow_down.svg" alt="">
+  <div class="aubergine_arrow" id="scrollArrow">
+    <img src="img/aubergine_arrow_down.svg" alt="aubergine knap">
   </div>
 
 
-
-
-
-  <h1>Verdens Mindste Kulturhus</h1>
+  <h1 id="targetHeading">Verdens Mindste Kulturhus</h1>
   <Textcontainer>
     <p>Vi er et småt, men levende kulturhus, der er passioneret omkring at skabe et rum, hvor forskellige former for kunstnerisk udtryk kan blomstre. Vores mål er at være et fristed for både etablerede og upcoming kunstnere samt et kreativt samlingspunkt for alle, der elsker kunst og kultur.</p>
   </Textcontainer>
@@ -43,6 +44,45 @@ import Bluearrow from "../components/Bluearrow.astro";
 </MainLayout>
 
 <style>
+
+  .image-container{
+      position: relative;
+      height: 100%;
+  }
+.image-index {
+  position: absolute;
+  display: flex;
+}
+
+.description{
+    display: none;
+  }
+
+.maincream_index_text{
+  position: absolute;
+  width: 230px;
+  top: 0%;
+  left: 0%;
+}
+
+.aubergine_index_text{
+  display: none;
+}
+
+.aubergine_arrow{
+display: flex;
+justify-content: center;
+padding-top: 10px;
+}
+
+.aubergine_arrow img {
+    cursor: pointer;
+    width: 60px;
+    border-radius: 0%;
+  }
+
+
+
   .title {
     font-family: "parry", sans-serif;
     font-weight: 800;
@@ -63,30 +103,26 @@ import Bluearrow from "../components/Bluearrow.astro";
   }
 
 
-.image-container {
-  position: relative;
-  overflow: hidden;
-  width: 300px; 
-  height: 200px; 
-}
-
-.image-container img {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-}
-
-
-
-.aubergine_arrow img {
-    cursor: pointer;
-    width: 60px;
-    border-radius: 0%;
-}
-
 
   @media (min-width: 600px) {
+    .image_index{
+    width: 70%;  
+    top: 20px;
+    left: 30px
+    }
+
+    .maincream_index_text{
+      display: none;    
+    }
+
+    .aubergine_index_text{
+      display: flex;
+      position: absolute;
+      width: 300px;
+      top: 10px;
+      left: 30px;
+    }
+
     .title {
       font-size: 35px;
     }
@@ -96,4 +132,46 @@ import Bluearrow from "../components/Bluearrow.astro";
       column-gap: 40px;
     }
   }
+
+
+@media (min-width: 1000px) {
+     .image_index{
+        width: 80%;    
+      }
+  span{
+    font-family: "parry", sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 40px;
+  }
+  .description{
+    display:flex;
+    position: absolute;
+    flex-direction: column;
+    text-align: center;
+    top: 100px;
+left: 350px;
+  }
+
+}
+
+
 </style>
+
+
+<script>
+
+const scrollArrow = document.getElementById('scrollArrow');
+const targetHeading = document.getElementById('targetHeading');
+
+scrollArrow.addEventListener('click', () => {
+  window.scrollTo({
+    top: targetHeading.offsetTop,
+    behavior: 'smooth'
+  });
+});
+
+
+    </script>
+
+  
