@@ -10,11 +10,6 @@ import Forside from "../components/Forside.astro";
 
 <MainLayout title="Forside">
   <Forside />
-
-  <div class="aubergine_arrow" id="scrollArrow">
-    <img src="img/aubergine_arrow_down.svg" alt="aubergine knap">
-  </div>
-  
   <h1>Verdens Mindste Kulturhus</h1>
   <Textcontainer>
     <p>Vi er et småt, men levende kulturhus, der er passioneret omkring at skabe et rum, hvor forskellige former for kunstnerisk udtryk kan blomstre. Vores mål er at være et fristed for både etablerede og upcoming kunstnere samt et kreativt samlingspunkt for alle, der elsker kunst og kultur.</p>
@@ -57,6 +52,7 @@ import Forside from "../components/Forside.astro";
     justify-content: flex-end;
   }
 
+
   @media (min-width: 600px) {
     .title {
       font-size: 35px;
@@ -68,18 +64,3 @@ import Forside from "../components/Forside.astro";
     }
   }
 </style>
-
-<script>
-
-const scrollArrow = document.getElementById('scrollArrow');
-const targetHeading = document.getElementById('targetHeading');
-
-scrollArrow.addEventListener('click', () => {
-  window.scrollTo({
-    top: targetHeading.offsetTop,
-    behavior: 'smooth'
-  });
-});
-
-
-    </script>
