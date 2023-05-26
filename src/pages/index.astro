@@ -64,3 +64,18 @@ import Forside from "../components/Forside.astro";
     }
   }
 </style>
+
+<script>
+
+const scrollArrow = document.getElementById('scrollArrow');
+const targetHeading = document.getElementById('targetHeading');
+
+scrollArrow.addEventListener('click', () => {
+  window.scrollTo({
+    top: targetHeading.offsetTop,
+    behavior: 'smooth'
+  });
+});
+
+
+    </script>
