@@ -14,45 +14,40 @@ import Frivillig from "../components/frivilligForm.astro";
         <p>Bidrag til lokalsamfundet som frivillig hos os. Uanset din interesse og erfaring, har vi brug for dig! Vi tilbyder fleksible arbejdstider og dejlige kollegaer. Kom og vær en del af vores dedikerede team.</p>
       </Textcontainer>
     </div>
-
-    <div class="image-container">
-      <img src="img/frivillig.svg" alt="frivillig billede" />
-    </div>
-    <div class="form-container">
-      <p>forms</p>
+    <div class="placement">
+      <div class="image-container">
+        <img src="img/frivillig.svg" alt="frivillig billede" />
+      </div>
+      <div class="form-container">
+        <Frivillig />
+      </div>
     </div>
   </div>
-
-  <Frivillig />
 
   <Bluearrow />
 </MainLayout>
 
 <style>
-  .text-container {
-    grid-area: text1;
+  .placement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
+
   .image-container {
-    grid-area: image1;
-  }
-  .form-container {
-    grid-area: form;
+    width: 70%;
   }
 
-  .frivillig_container {
-    display: grid;
-    grid-template-areas:
-      "image1"
-      "text1"
-      "form";
-  }
-
-  @media (min-width: 600px) {
-    .frivillig_container {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-areas:
-        "text1 text1"
-        "image1 form";
+  @media (min-width: 700px) {
+    .image-container {
+      width: 40%;
+    }
+    .placement {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
     }
   }
 </style>
