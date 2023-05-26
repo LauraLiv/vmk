@@ -1,0 +1,83 @@
+---
+import { log } from "astro/dist/core/logger/core";
+export const prerender = true;
+import MainLayout from "../../layout/main-layout.astro";
+import Button from "../../components/Button.astro";
+import Bluearrow from "../../components/Bluearrow.astro";
+
+
+export async function getStaticPaths() {
+
+    const url = `https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events`;
+const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
+ 
+  const options = {
+    method: "GET",
+    headers: {
+      apikey: api,
+    },
+  };
+
+  const data = await fetch(url, options).then((res) => res.json());
+
+  return data.map((singleevent) => {
+    return {
+      params: { id: singleevent.id },
+      props: { singleevent },
+    };
+  });
+}
+
+const {singleevent} = Astro.props;
+console.log(singleevent);
+
+
+---
+
+<MainLayout>
+    <h1>Børne bio</h1>
+    <div class="section_container">
+    <div class="image_container"><img src=`/../img/${singleevent.image}` alt="bornebio"></div>
+    <div class="text_container">
+    <p class="first_text">
+        {singleevent.description}
+    </p>
+    <p> <span> Dato:</span> {singleevent.date} </p>
+    <p> <span> Tid:</span> {singleevent.time}</p>
+    <p> <span> Pris:</span> {singleevent.price}</p>
+   <div class="button"><Button classname="button_big" action="Køb her" link="#"/></div> 
+    </div>
+</div>
+    
+    </MainLayout> 
+
+    <style>
+.section_container {
+display: grid;
+grid-template-columns: 1fr;
+column-gap: 40px;
+row-gap: 40px;
+}
+
+.button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+span {
+    font-weight: bold;
+}
+
+.first_text{
+    padding-bottom: 20px;
+}
+
+@media (min-width:600px) {
+    .section_container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+}
+}
+
+    </style>

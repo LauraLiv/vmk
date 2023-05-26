@@ -1,17 +1,18 @@
 ---
 export const prerender = false;
 
-
-console.log(Astro.params);
-
-
- var currentDate = new Date();
-  let month = Astro.params.month;
+ const currentDate = new Date();
+ let month = Astro.params.month;
  let year = Astro.params.year;
-  console.log("Current month and year: " + month + "/" + year);
 
 
-    function getDaysInMonth(month, year) {
+
+ let monthInWord = [
+  'intet','januar','februar','marts','april','maj','juni','juli','august','september','oktober','november','december'
+];
+  
+
+function getDaysInMonth(month, year) {
   // Create a new date object for the given month and year
   const date = new Date(year, month - 1, 1);
 
@@ -45,36 +46,72 @@ const options = {
 };
 
 const data = await fetch(url, options).then((res) => res.json());
-console.log(data[0]);
+data.sort((a, b) =>  Date.parse(a.date) - Date.parse(b.date));
 
 function getFirstLetters(sentence) {
   return sentence.substring(0, 50);
 }
+
+
+let nextmonth = Number(month)+1;
+let nextyear = Number(year);
+if(nextmonth == 13){
+  nextmonth =1;
+  nextyear += 1;
+}
+
+let prevmonth = Number(month)-1;
+let prevyear = Number(year);
+if(prevmonth == 0){
+  prevmonth =12;
+  prevyear -= 1;
+}
+
 ---
 
 <MainLayout>
     <div class="headlineContainer">
         <h1>Begivenheder</h1>
     </div>
+    <div class="month-container">
+      <a href=`/begivenheder/${prevyear}/${prevmonth}`><img class="arrowMonth" src="/../../img/black_arrow_left.svg" alt=""></a>
+      <p>{monthInWord[month]+": "+year}</p>
+      <a href=`/begivenheder/${nextyear}/${nextmonth}`><img class="arrowMonth" src="/../../img/black_arrow_right.svg" alt=""></a>
+    </div>
 
     <div class="eventContainer">
-
-        {
+        {   
+        
             data.map((event) => {
-                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} /> 
+                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} link={"/../../begivenhed/"+event.id} /> 
             })
         } 
-
-
     </div>
+    
     
 </MainLayout>
 
 <style>
+    .month-container{
+      display: flex;
+      margin-inline: auto;
+      justify-content: center;
+      align-items: center;
+      
+    }
     .eventContainer{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        
+    }
+  
+
+    .arrowMonth{
+      width: 20px;
+      
     }
 
 </style>
+
+
