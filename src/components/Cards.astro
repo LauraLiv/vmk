@@ -1,6 +1,31 @@
 ---
 import Card from "../components/Card.astro";
-const url = "https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?";
+
+const currentDate = new Date();
+const month = currentDate.getMonth() + 1; 
+const year = currentDate.getFullYear();
+
+
+function getDaysInMonth(month, year) {
+  // Create a new date object for the given month and year
+  const date = new Date(year, month - 1, 1);
+
+  // Get the next month's first day
+  const nextMonth = new Date(year, month, 1);
+
+  // Subtract 1 day from the next month's first day
+  const lastDayOfMonth = new Date(nextMonth.getTime() - 1);
+
+  // Extract the day from the last day of the given month
+  const daysInMonth = lastDayOfMonth.getDate();
+
+  return daysInMonth;
+}
+
+const daysInMonth = getDaysInMonth(month, year);
+
+
+const url = `https://yskliqqpdzsegbvxarsv.supabase.co/rest/v1/events?select=*&&date=gt.${year}-${month}-01&date=lt.${year}-${month}-${daysInMonth}`;
 const api = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inlza2xpcXFwZHpzZWdidnhhcnN2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQxMzk2MjQsImV4cCI6MTk5OTcxNTYyNH0.iKKqWn6lmjZ-iZtDQz4yQf1uzevLT0nACyS9LlHt5x8";
 const options = {
   method: "GET",
@@ -10,7 +35,7 @@ const options = {
 };
 
 const data = await fetch(url, options).then((res) => res.json());
-console.log(data[0]);
+data.sort((a, b) =>  Date.parse(a.date) - Date.parse(b.date));
 
 function getFirstLetters(sentence) {
   return sentence.substring(0, 50);
@@ -32,7 +57,7 @@ function getFirstLetters(sentence) {
     <div class="carousel">
          {
             data.map((event) => {
-                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} /> 
+                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} link={"begivenhed/"+event.id} /> 
             })
         } 
  

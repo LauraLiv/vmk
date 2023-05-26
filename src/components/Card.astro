@@ -1,10 +1,10 @@
 ---
 import Button from "../components/Button.astro";
-const {headline, eventDate, content, cardImage, className} = Astro.props;
+const {headline, eventDate, content, cardImage, className, link} = Astro.props;
 ---
 
 <div class="card square">
-    <div class="card_img" style=`background-image: url('img/${cardImage}');`>
+    <div class="card_img" style=`background-image: url('/../../img/${cardImage}');`>
     </div>
     <div class="card_content">
         <div class="title_date_wrapper">
@@ -21,7 +21,7 @@ const {headline, eventDate, content, cardImage, className} = Astro.props;
             </p>
         </div>
         <div class="card_button">
-            <Button classname="button_small" action="Læs mere" link="#" />
+            <Button classname="button_small" action="Læs mere" link={link} />
         </div>
     </div>
 </div>
