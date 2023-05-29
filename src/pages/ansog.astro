@@ -27,8 +27,16 @@ import ApiGet from "../components/ApiGet.astro";
 </MainLayout>
 
 <style>
+
+  .ansog_container{
+    display: flex;
+    justify-content: center;
+    
+    flex-wrap: wrap;
+  }
   .text_section{
-    margin-top: 100px;
+    margin-top: 10px;
+    max-width: 550px;
   }
   .price{
     font-size: 20px;
@@ -47,14 +55,25 @@ import ApiGet from "../components/ApiGet.astro";
 
 .roof{
   position: relative;
-  max-width: 350px;
+  width: 350px;
   bottom: -2px;
   
 }
-@media (min-width:800px){
+@media (min-width:900px){
   .ansog_container{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-wrap:nowrap;
+    justify-content: space-between;
+    
+  }
+  .text_section{
+    margin-top: 100px;
+    
+  }
+}
+
+@media (max-width:350px){
+  .roof {
+    width: 280px;
   }
 }
 </style>

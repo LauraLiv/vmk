@@ -30,8 +30,8 @@ const {headline, eventDate, content, cardImage, className, link} = Astro.props;
 
 .card {
     background-color: white;
-    width: 280px;
-    height: 355px;
+   max-width: 280px;
+    height: 375px;
     border-radius: 20px;
     margin: 20px 10px;
     display: inline-block;
@@ -76,7 +76,7 @@ const {headline, eventDate, content, cardImage, className, link} = Astro.props;
 }
 @media (min-width: 600px) {
 .card {
-    width: 300px;
+    max-width: 300px;
     height: 400px;
 }
 
@@ -84,4 +84,15 @@ const {headline, eventDate, content, cardImage, className, link} = Astro.props;
     height: 222px;
 }
 }
+
+@media (max-width: 350px) {
+    .card {
+
+    height: 420px;
+}
+.description p {
+   padding: 0;
+}
+}
+
 </style>
