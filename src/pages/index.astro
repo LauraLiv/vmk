@@ -5,9 +5,11 @@ import MainLayout from "../layout/main-layout.astro";
 import Cards from "../components/Cards.astro";
 import Button from "../components/Button.astro";
 import Bluearrow from "../components/Bluearrow.astro";
+import Forside from "../components/Forside.astro";
 ---
 
 <MainLayout title="Forside">
+  <Forside />
   <h1>Verdens Mindste Kulturhus</h1>
   <Textcontainer>
     <p>Vi er et småt, men levende kulturhus, der er passioneret omkring at skabe et rum, hvor forskellige former for kunstnerisk udtryk kan blomstre. Vores mål er at være et fristed for både etablerede og upcoming kunstnere samt et kreativt samlingspunkt for alle, der elsker kunst og kultur.</p>
@@ -49,6 +51,7 @@ import Bluearrow from "../components/Bluearrow.astro";
     display: flex;
     justify-content: flex-end;
   }
+
 
   @media (min-width: 600px) {
     .title {
