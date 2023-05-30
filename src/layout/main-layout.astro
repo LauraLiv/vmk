@@ -1,5 +1,5 @@
 ---
-const { title } = Astro.props;
+const { title, background } = Astro.props;
 import "../styles/style.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -21,14 +21,56 @@ import Footer from "../components/Footer.astro";
   </head>
   <body>
     <Header />
+    <div class={background}>
     <main class="main">
       <slot />
     </main>
+    </div>
     <Footer />
   </body>
 </html>
 
 <style>
+  .ansog{
+    background-image: url("illustration/kaffe.svg");
+    background-position-x: -4rem;
+    background-position-y: 23rem;
+    background-repeat: no-repeat;
+    background-size: 500px;
+  }
+
+  @media (max-width:900px){
+    .ansog{
+    background-image: none;
+    
+  }
+}
+
+
+.forside{
+    background-image: url("illustration/blyant.svg"),url("illustration/drink.svg");
+    background-position-x: -4rem, 2rem;
+    background-position-y: 23rem, 2rem;
+    background-repeat: no-repeat;
+    background-size: 500px;
+  }
+
+  @media (max-width:900px){
+    .forside{
+    background-image: none;
+    
+  }
+}
+
+
+
+
+
+
+
+
+
+
   main {
     max-width: 1150px;
     margin-inline: auto;
