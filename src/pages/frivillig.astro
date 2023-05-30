@@ -32,26 +32,24 @@ import Frivillig from "../components/frivilligForm.astro";
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-   
   }
 
   .image-container {
-  
+    width: 200px;
+    margin-bottom: 30px;
   }
 
-  img{
+  img {
     max-width: 400px;
   }
 
-  
-
   @media (min-width: 700px) {
     .image-container {
-      width:50%;
-      
+      width: 50%;
     }
     .placement {
       align-items: center;
+      flex-wrap: nowrap;
       gap: 20px;
     }
   }

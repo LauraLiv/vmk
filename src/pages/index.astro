@@ -11,7 +11,7 @@ import Forside from "../components/Forside.astro";
 <MainLayout title="Forside">
   <Forside />
   <div class="aubergine_arrow" id="scrollArrow">
-    <img src="img/aubergine_arrow_down.svg" alt="aubergine knap">
+    <img src="img/aubergine_arrow_down.svg" alt="aubergine knap" />
   </div>
   <h1 id="targetHeading">Verdens Mindste Kulturhus</h1>
   <Textcontainer>
@@ -36,19 +36,19 @@ import Forside from "../components/Forside.astro";
 </MainLayout>
 
 <style>
+  .aubergine_arrow {
+    display: flex;
+    justify-content: center;
+    padding-top: 3px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+  }
 
-.aubergine_arrow{
-  display: flex;
-  justify-content: center;
-  padding-top: 3px;
-  padding-bottom: 10px;
-}
-
-.aubergine_arrow img{
- cursor: pointer;
-  width: 60px;
-  border-radius: 0%;
-}
+  .aubergine_arrow img {
+    cursor: pointer;
+    width: 60px;
+    border-radius: 0%;
+  }
 
   .title {
     font-family: "parry", sans-serif;
@@ -69,7 +69,6 @@ import Forside from "../components/Forside.astro";
     justify-content: flex-end;
   }
 
-
   @media (min-width: 600px) {
     .title {
       font-size: 35px;
@@ -83,15 +82,13 @@ import Forside from "../components/Forside.astro";
 </style>
 
 <script>
+  const scrollArrow = document.getElementById("scrollArrow");
+  const targetHeading = document.getElementById("targetHeading");
 
-const scrollArrow = document.getElementById('scrollArrow');
-const targetHeading = document.getElementById('targetHeading');
-
-scrollArrow.addEventListener('click', () => {
-window.scrollTo({
-top: targetHeading.offsetTop,
-behavior: 'smooth'
-});
-});
-
+  scrollArrow.addEventListener("click", () => {
+    window.scrollTo({
+      top: targetHeading.offsetTop,
+      behavior: "smooth",
+    });
+  });
 </script>
