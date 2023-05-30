@@ -12,7 +12,7 @@
 
 <style>
   .mobile {
-    max-width: 550px;
+    max-width: 300px;
     display: block;
     margin: auto;
   }
@@ -23,10 +23,10 @@
     display: none;
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 500px) {
     .words {
       grid-area: 1/3/1/9;
-      font-size: 3.2vw;
+      font-size: 3.0vw;
       align-self: center;
       justify-self: center;
       padding: 20px;
@@ -35,13 +35,14 @@
     }
     .web {
       display: block;
-      border-radius: 30px;
+      border-radius: 20px;
       grid-area: 2/2/9/9;
+      width: 93%;
     }
 
     .text {
       background-color: var(--aubergine);
-      border-radius: 39px;
+      border-radius: 20px;
       grid-area: 1 / 1 / 3 /3;
       display: block;
     }
