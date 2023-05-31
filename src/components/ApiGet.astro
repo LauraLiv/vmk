@@ -12,7 +12,13 @@ const options = {
 };
 
 const data = await fetch(url, options).then((res) => res.json());
-console.log(data[0].content);
+
+// const targetId = 2;
+const idContent = data.find(obj => obj.id == pagenr);
+
+
 ---
 
-<p>{data[pagenr].content}</p>
+<p>{idContent.content}</p>
+
+

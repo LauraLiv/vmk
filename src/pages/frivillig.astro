@@ -4,6 +4,7 @@ import Textcontainer from "../components/Textcontainer.astro";
 import MainLayout from "../layout/main-layout.astro";
 import Bluearrow from "../components/Bluearrow.astro";
 import Frivillig from "../components/frivilligForm.astro";
+import ApiGet from "../components/ApiGet.astro"
 ---
 
 <MainLayout title="Frivillig" background="ansog-bg">
@@ -11,7 +12,7 @@ import Frivillig from "../components/frivilligForm.astro";
   <div class="frivillig_container">
     <div class="text-container">
       <Textcontainer>
-        <p>Bidrag til lokalsamfundet som frivillig hos os. Uanset din interesse og erfaring, har vi brug for dig! Vi tilbyder fleksible arbejdstider og dejlige kollegaer. Kom og vær en del af vores dedikerede team.</p>
+        <ApiGet pagenr="4"/>
       </Textcontainer>
     </div>
     <div class="placement">

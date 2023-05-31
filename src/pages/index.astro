@@ -6,6 +6,7 @@ import Cards from "../components/Cards.astro";
 import Button from "../components/Button.astro";
 import Bluearrow from "../components/Bluearrow.astro";
 import Forside from "../components/Forside.astro";
+import ApiGet from "../components/ApiGet.astro"
 ---
 
 <MainLayout title="Forside" background="forside-bg">
@@ -15,7 +16,7 @@ import Forside from "../components/Forside.astro";
   </div>
   <h1 id="targetHeading">Verdens Mindste Kulturhus</h1>
   <Textcontainer>
-    <p>Vi er et småt, men levende kulturhus, der er passioneret omkring at skabe et rum, hvor forskellige former for kunstnerisk udtryk kan blomstre. Vores mål er at være et fristed for både etablerede og upcoming kunstnere samt et kreativt samlingspunkt for alle, der elsker kunst og kultur.</p>
+   <ApiGet pagenr="1"/>
   </Textcontainer>
   <p class="title">Månedens begivenheder..</p>
   <Cards />
