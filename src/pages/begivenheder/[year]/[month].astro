@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import Bluearrow from "../../../components/Bluearrow.astro";
 
  const currentDate = new Date();
  let month = Astro.params.month;
@@ -48,8 +49,8 @@ const options = {
 const data = await fetch(url, options).then((res) => res.json());
 data.sort((a, b) =>  Date.parse(a.date) - Date.parse(b.date));
 
-function getFirstLetters(sentence) {
-  return sentence.substring(0, 50);
+function getFirstLetters(sentence,numberW) {
+  return sentence.substring(0, numberW);
 }
 
 
@@ -83,12 +84,14 @@ if(prevmonth == 0){
         {   
         
             data.map((event) => {
-                return <div class="card-container"> <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} link={"/../../begivenhed/"+event.id} /> </div>
+                return <div class="card-container"> <Card headline={getFirstLetters(event.headline,15)+"..."} eventDate={event.date} content={ getFirstLetters(event.description,50)+"..."} cardImage={event.image} link={"/../../begivenhed/"+event.id} /> </div>
             })
         } 
     </div>
+   
     
     
+    <Bluearrow /> 
 </MainLayout>
 
 <style>
