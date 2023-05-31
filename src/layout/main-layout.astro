@@ -11,6 +11,8 @@ import Footer from "../components/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon_vmk.svg" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Velkommen til Verdens Mindste Kulturhus – et pulserende fællesskab, hvor kultur og events blomstrer. Udforsk vores mangfoldige program med kunst, musik, teater og meget mere. Oplev en unik atmosfære og deltag i spændende arrangementer, der bringer mennesker sammen. Kom og vær en del af vores levende kulturhus i hjertet af byen." />
+    <meta name="keywords" content="Fællesskab, Kultur, Events" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,47 +24,43 @@ import Footer from "../components/Footer.astro";
   <body>
     <Header />
     <div class={background}>
-    <main class="main">
-      <slot />
-    </main>
+      <main class="main">
+        <slot />
+      </main>
     </div>
     <Footer />
   </body>
 </html>
 
 <style>
-
-.single-event-bg{
-  background-image: url("/../illustration/blyant.svg");
-  background-position-x: 102%;
+  .single-event-bg {
+    background-image: url("/../illustration/blyant.svg");
+    background-position-x: 102%;
     background-position-y: 100%;
     background-repeat: no-repeat;
     background-size: 500px;
-}
-@media (max-width:1010px){
-    .single-event-bg{
-    background-image: none;
-    
   }
-}
+  @media (max-width: 1010px) {
+    .single-event-bg {
+      background-image: none;
+    }
+  }
 
-.om-os-bg{
-  background-image: url("illustration/drink.svg");
-  background-position-x: 102%;
+  .om-os-bg {
+    background-image: url("illustration/drink.svg");
+    background-position-x: 102%;
     background-position-y: 100%;
     background-repeat: no-repeat;
     background-size: 500px;
-}
-
-@media (max-width:1010px){
-    .om-os-bg{
-    background-image: none;
-    
   }
-}
 
+  @media (max-width: 1010px) {
+    .om-os-bg {
+      background-image: none;
+    }
+  }
 
-  .ansog-bg{
+  .ansog-bg {
     background-image: url("illustration/kaffe.svg");
     background-position-x: -14rem;
     background-position-y: 25rem;
@@ -70,50 +68,38 @@ import Footer from "../components/Footer.astro";
     background-size: 500px;
   }
 
-  @media (max-width:900px){
-    .ansog{
-    background-image: none;
-    
+  @media (max-width: 900px) {
+    .ansog {
+      background-image: none;
+    }
   }
-}
 
-.begivenheder-bg{
-  background-image: url("../../illustration/blyant.svg"),url("../../illustration/malesaet.svg");
+  .begivenheder-bg {
+    background-image: url("../../illustration/blyant.svg"), url("../../illustration/malesaet.svg");
     background-position-x: -4rem, 68rem;
     background-position-y: 4rem, 40rem;
     background-repeat: no-repeat;
     background-size: 500px;
-}
-@media (max-width:900px){
-    .begivenheder-bg{
-    background-image: none;
-    
   }
-}
+  @media (max-width: 900px) {
+    .begivenheder-bg {
+      background-image: none;
+    }
+  }
 
-.forside-bg{
-    background-image: url("illustration/blyant.svg"),url("illustration/drink.svg"),url("illustration/malesaet.svg"), url("illustration/blyant2.svg");
+  .forside-bg {
+    background-image: url("illustration/blyant.svg"), url("illustration/drink.svg"), url("illustration/malesaet.svg"), url("illustration/blyant2.svg");
     background-position-x: -4rem, 71rem, -4rem, 50rem;
     background-position-y: 20rem, 45rem, 85rem, 110rem;
     background-repeat: no-repeat;
     background-size: 500px;
   }
 
-  @media (max-width:900px){
-    .forside-bg{
-    background-image: none;
-    
+  @media (max-width: 900px) {
+    .forside-bg {
+      background-image: none;
+    }
   }
-}
-
-
-
-
-
-
-
-
-
 
   main {
     max-width: 1150px;
