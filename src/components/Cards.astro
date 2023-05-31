@@ -57,7 +57,7 @@ function getFirstLetters(sentence) {
     <div class="carousel">
          {
             data.map((event) => {
-                return <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} link={"begivenhed/"+event.id} /> 
+                return <div class="square"> <Card headline={event.headline} eventDate={event.date} content={ getFirstLetters(event.description)+"..."} cardImage={event.image} link={"begivenhed/"+event.id} /> </div>
             })
         } 
  
@@ -67,12 +67,13 @@ function getFirstLetters(sentence) {
 
 
 <script>
+   function carouselFun(){
     const carousel = document.querySelector(".carousel");
     const arrowicons = document.querySelectorAll(".arrow");
     const firstSquare = carousel.querySelectorAll(".square")[0];
 
     let isDragStart = false, isDraggin = false, prevPageX, prevScrollLeft, postitionDiff;
-    let firstSquareWith = firstSquare.clientWidth +20;
+    let firstSquareWith = firstSquare.clientWidth;
 
     arrowicons.forEach(icon => {
         icon.addEventListener("click", () => {
@@ -138,6 +139,11 @@ function getFirstLetters(sentence) {
     carousel.addEventListener("touchend", dragStop);
 
 
+   }
+
+   carouselFun();
+
+   window.onresize = carouselFun;
    
 </script>
 
@@ -152,11 +158,28 @@ function getFirstLetters(sentence) {
         height: 40px;
     }
     .right{
+        right: 0px;
+    }
+    .left{
+        left: 0px;
+    }
+    @media (min-width:700px){
+        .right{
         right: -20px;
     }
     .left{
         left: -20px;
     }
+}
+@media (min-width:1000px){
+    .right{
+        right: -40px;
+    }
+    .left{
+        left: -40px;
+    }
+}
+
     
     .wrapper{
         max-width: 960px;
@@ -182,10 +205,25 @@ function getFirstLetters(sentence) {
     .square{
          display: inline-block; 
         width: 350px;
-        height: 350px;
-        margin-inline: 4px;
+        width: calc(100%/3); 
+        /* height: 350px; */
+        /* margin-inline: 4px; */
+        text-align: center;
         padding: 0;
     }
+    @media (max-width:1000px){
+    .square{
+      width: calc(100%/2); 
+    
+  }
+}
+
+@media (max-width:700px){
+    .square{
+      width: calc(100%/1); 
+    
+  }
+}
     
     .blue{
         background-color: blue;
