@@ -75,9 +75,9 @@ if(prevmonth == 0){
         <h1>Begivenheder</h1>
     </div>
     <div class="month-container">
-      <a href=`/begivenheder/${prevyear}/${prevmonth}`><img class="arrowMonth" src="/../../img/black_arrow_left.svg" alt=""></a>
-      <p>{monthInWord[month]+": "+year}</p>
-      <a href=`/begivenheder/${nextyear}/${nextmonth}`><img class="arrowMonth" src="/../../img/black_arrow_right.svg" alt=""></a>
+      <a class="leftArrow" href=`/begivenheder/${prevyear}/${prevmonth}`><img class="arrowMonth" src="/../../img/black_arrow_left.svg" alt=""></a>
+      <p class="monthYear">{monthInWord[month]+": "+year}</p>
+      <a class="rightArrow" href=`/begivenheder/${nextyear}/${nextmonth}`><img class="arrowMonth" src="/../../img/black_arrow_right.svg" alt=""></a>
     </div>
 
     <div class="eventContainer">
@@ -95,6 +95,19 @@ if(prevmonth == 0){
 </MainLayout>
 
 <style>
+
+  .monthYear{
+    font-size: 20px;
+  }
+
+  .leftArrow{
+    padding-inline:15px;
+  }
+
+  .rightArrow{
+    padding-inline:15px;
+   
+  }
   .card-container{
     margin: 20px 0px;
   }
