@@ -35,8 +35,8 @@ import Footer from "../components/Footer.astro";
 <style>
   .single-event-bg {
     background-image: url("/../illustration/blyant.svg");
-    background-position-x: 102%;
-    background-position-y: 100%;
+    background-position-x: 110%;
+    background-position-y: 150%;
     background-repeat: no-repeat;
     background-size: 500px;
   }
@@ -69,19 +69,19 @@ import Footer from "../components/Footer.astro";
   }
 
   @media (max-width: 900px) {
-    .ansog {
+    .ansog-bg {
       background-image: none;
     }
   }
 
   .begivenheder-bg {
     background-image: url("../../illustration/blyant.svg"), url("../../illustration/malesaet.svg");
-    background-position-x: -4rem, 68rem;
-    background-position-y: 4rem, 40rem;
+    background-position-x: -4%, 108%;
+    background-position-y: 4%, 80%;
     background-repeat: no-repeat;
     background-size: 500px;
   }
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .begivenheder-bg {
       background-image: none;
     }
@@ -89,13 +89,13 @@ import Footer from "../components/Footer.astro";
 
   .forside-bg {
     background-image: url("illustration/blyant.svg"), url("illustration/drink.svg"), url("illustration/malesaet.svg"), url("illustration/blyant2.svg");
-    background-position-x: -4rem, 71rem, -4rem, 50rem;
-    background-position-y: 20rem, 45rem, 85rem, 110rem;
+    background-position-x: -4%, 110%, -4%, 80%;
+    background-position-y: 20%, 48%, 85%, 110%;
     background-repeat: no-repeat;
     background-size: 500px;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .forside-bg {
       background-image: none;
     }
